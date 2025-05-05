@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Confirm Code</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='registration.css')}}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <h1 style="display: flex; justify-content: center; align-items: center; gap: 5px; margin-left: -32px;">
+                <img src="{{ url_for('static', filename='Logo.png')}}" height="30px" width="30px ">
+                <a href="{{url_for ('home')}}">Music Recommendation System</a>
+            </h1>
+            <li><a href="{{ url_for('home')}}">Home</a></li>
+        </ul>
+    </nav>
+    <div  id="successMessage" >
+        {% with messages=get_flashed_messages()%}
+        {% if messages %}
+            {% for msg in messages %}
+                <p class="flash">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+     {% endwith %}
+    </div>
+    <h2>OTP Verification</h2>
+    
+    <div class="register">
+    <form  class="register_style" method="POST" action="{{ url_for('confirm_code') }}">
+        <label for="Email">Email</label><br>
+        <input type="email" name="Email" value="{{ email }}" required><br>
+        <label for="code"> Enter the OTP sent to your email Id</label><br>
+        <input type="text" name="code" required><br>
+        <button type="submit">Confirm</button><br>
+    </form>
+</div>
+    <form  method="POST" action="{{ url_for('resend_code') }}" class="resend_code">
+        <input type="hidden" name="Email" value="{{ email }}">
+        <!-- <p> Didn't receive code?</p> -->
+        <div class="resend-container">
+        <button type="submit" id="resend-button">Resend Code</button>
+        <span id="countdown-timer"></span>
+        </div>
+    </form>
+
+    <script>
+        // Function to start the countdown
+        function startCountdown(seconds) {
+            let remainingTime = seconds;
+            const resendButton = document.getElementById('resend-button');
+            const countdownTimer = document.getElementById('countdown-timer');
+
+            function updateTimer() {
+                if (remainingTime > 0) {
+                    countdownTimer.textContent = `${remainingTime} seconds`
+                    remainingTime--;
+                } else {
+                    clearInterval(timerInterval);
+                    countdownTimer.classList.add('hidden');
+                    resendButton.classList.remove('hidden');
+                }
+            }
+
+            updateTimer();
+            const timerInterval = setInterval(updateTimer, 1000);
+        }
+
+        // Ensure the script runs after the DOM is fully loaded
+        document.addEventListener('DOMContentLoaded', function() {
+            // Safely encode the remaining_time variable as a JSON number
+            const remainingTime = JSON.parse('{{ remaining_time|tojson|safe }}');
+            if (remainingTime > 0) {
+                startCountdown(remainingTime);
+            }
+        });
+
+        
+    window.setTimeout("document.getElementById('successMessage').style.display='none';", 3000); 
+    </script>
+</body>
+</html>

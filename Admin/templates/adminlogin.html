@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="icon" href="/static/Logo.png"> 
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='admin.css')}}">
+</head>
+<body>
+    <nav class="Navbar">
+        <ul>
+            <h1 style="display: flex; justify-content: center; align-items: center; gap: 5px; margin-left: -32px;">
+                <img src="{{ url_for('static', filename='Logo.png')}}" height="30px" width="30px ">
+                <a href="{{url_for ('admin_login')}}">Music Recommendation System</a>
+            </h1>
+        </ul>
+    </nav>
+    <div id="Wrong Info Message" >
+        {% with messages=get_flashed_messages()%}
+        {% if messages %}
+            {% for msg in messages %}
+                <p class="flash">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+     {% endwith %}
+    </div>
+    <h2>LOGIN</h2> 
+   
+    <div class="register">
+    <form class="register_style" action="/login" method="post" autocomplete="off">
+    
+    <label for="email">Email</label><br>
+    <input type="text" name="Email" value="" autocomplete="off" required ><br>
+  
+    <label for="password">Password</label><br>
+    <input type="password" name="password" value="" autocomplete="off" required><br>
+    <button type="submit" >Login</button><br>
+    <br>
+ </form>
+ </div>
+ <script
+  >
+    window.setTimeout("document.getElementById('Wrong Info Message').style.display='none';", 2000); 
+ </script>
+</body>
+</html>

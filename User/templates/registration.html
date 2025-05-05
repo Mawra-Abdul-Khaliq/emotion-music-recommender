@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Registration</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='registration.css')}}">
+</head>
+<body >
+    <nav class="navbar">
+        <ul> 
+            <h1 style="display: flex; justify-content: center; align-items: center; gap: 5px; margin-left: -32px;">
+            <img src="{{ url_for('static', filename='Logo.png')}}" height="30px" width="30px ">
+                <a href="{{url_for ('home')}}">Music Recommendation System</a>
+            </h1>
+            <li><a href="{{url_for ('home')}}">Home</a></li>
+        </ul>
+    </nav>
+    <div  id="successMessage" >
+        {% with messages=get_flashed_messages()%}
+        {% if messages %}
+            {% for msg in messages %}
+                <p class="flash">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+     {% endwith %}
+    </div>
+    <h2>REGISTRATION</h2>
+    <div class="register">
+    <form  id="registrationForm" class="register_style" action="{{ url_for('registration') }}" method="post">
+    <label for="username">Username</label><br>
+    <input type="text" name="username" required><br>
+    <label for="email">Email</label><br>
+    <input type="email" id="email" name="Email" required><br>
+    <label for="dob">Date of Birth </label><br>
+    <input type="date" id="dob" name="dob" placeholder="YYYY/MM/DD" required><br>
+    <label for="password" >Password</label><br>
+    <input type="password" name="password" required minlength="6"><br>
+    <button type="submit" >Register</button><br>
+    <br>
+    Already a member: <a href="{{url_for ('userlogin')}}">Sign In</a>
+</form>
+</div>
+<script>
+
+    function validateEmail(){
+        var email = document.getElementById("email").value;
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[a-zA-Z]{2,}$/;
+            
+            if (!emailPattern.test(email)) {
+                alert("Please enter a valid email address.");
+                event.preventDefault();
+            }
+    }
+    document.getElementById("registrationForm").addEventListener('submit', function() {
+    validateEmail();
+  
+});
+</script>
+<script>
+    window.setTimeout("document.getElementById('successMessage').style.display='none';", 2000); 
+</script>
+</body>
+</html>

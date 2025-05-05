@@ -1,0 +1,58 @@
+
+h2{ 
+    padding-left: 40%;
+    color: #fff;
+    font-size: 1.5em;
+    margin-top: 4%;   
+}
+.register{
+    display: flex;
+    justify-content: center;
+}
+.register_style{
+    margin-top:2%;
+    color: #fff;
+}
+.register_style label{
+    color: #fff;
+}
+.register_style input{
+padding:7px;
+width:250px;
+}
+.register_style a{
+    color: rgb(2, 37, 52);
+}
+.register_style button{
+    margin-top: 4%;
+    width:250px;
+    padding: 7px;
+    background: linear-gradient(to right , rgb(242, 240, 244), rgb(1, 84, 120)) ;
+    color: #fff;
+    border-radius: 3px;
+    font-size: medium;
+    border-style: none;
+}
+.register_style  a:hover{
+    color:rgb(181, 225, 240) ;
+}
+.register_style input:focus
+{
+    border: none ;
+    background-color: rgb(181, 225, 240);
+}
+@media only screen and (max-width: 1190px) {
+    h2{
+        padding-left: 39%;
+    }
+}
+@media only screen and (max-width: 1090px) {
+    h2{
+        padding-left: 38%;
+    }
+}
+@media only screen and (max-width: 990px) {
+    h2{
+        padding-left: 37%;
+    }
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Music Recommendations</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='process_frames.css')}}" class="css">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <h1 style="display: flex; justify-content: center; align-items: center; gap: 5px; margin-left: -32px;">
+                <img src="{{ url_for('static', filename='Logo.png')}}" height="30px" width="30px ">
+                <a href="{{url_for ('home')}}">Music Recommendation System</a>
+            </h1>
+
+            <li><a href="{{url_for('logout')}}" onclick="return confirm('Are you sure you want to logout?')">Logout</a></li>
+            <li><a href="{{ url_for('detect') }}">Back</a></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+        </ul>
+    </nav>
+      <div  id="successMessage" >
+        {% with messages=get_flashed_messages()%}
+        {% if messages %}
+            {% for msg in messages %}
+                <p class="flash">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+     {% endwith %}
+    </div>
+    <div class="containers">
+        <div class="heading"><h1>Music Recommendations based on {{ detected_emotion }} mood</h1></div>
+            <ul>
+                {% for song in suggested_songs %}
+                <div class="songs">
+                    <li>
+                        <strong>Artist:</strong> {{ song.artist }}<br>
+                        <strong>Genre:</strong> {{ song.genre }}<br>
+                        <strong>Song Name:</strong> {{ song.song_name }}<br>
+                        <a href="{{ song.youtube_link }}" target="_blank" class="listen-button">Listen Now</a><br>
+                    </li>
+                    <br/>
+                </div>
+                {% endfor %}
+            </ul>
+    </div>
+   
+      <script>
+    window.setTimeout("document.getElementById('successMessage').style.display='none';", 2000); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,71 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Music Recommandation System</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css') }}">
+
+</head>
+
+<body class="back">
+    <nav class="navbar">
+        <ul>
+            <h1 style="display: flex; justify-content: center; align-items: center; gap: 5px; margin-left: -32px;">
+                <img src="{{ url_for('static', filename='Logo.png')}}" height="30px" width="30px ">
+                <a href="{{url_for ('home')}}">Music Recommendation System</a>
+            </h1>
+
+            <li><a href="{{url_for ('home')}}">Home</a></li>
+            <li><a href="{{url_for ('userlogin')}}">Login</a></li>
+        </ul>
+    </nav>
+      <div  id="successMessage" >
+        {% with messages=get_flashed_messages()%}
+        {% if messages %}
+            {% for msg in messages %}
+                <p class="flash">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+     {% endwith %}
+    </div>
+        <div class="container">
+            <h4>
+                Music Recommendation System Based On<br><span style="color:rgb(17, 187, 218)">User's Facial Emotions</span>
+            </h4>
+        <div class="paragraph">
+            <p id="text">
+                The purpose of this music recommendation web-app is to enhance user's emotional well-being by 
+                recommending songs based on their facial expressions. By analyzing real-time facial emotions,
+                 the system identifies the user's current mood and suggests music that resonates with or helps
+                  transition their emotional state. 
+                <span id="more-text" style="display: none;">
+                It aims to provide a personalized music experience that can uplift, calm, or energize users
+                as needed. The web-app uses advanced technology to detect emotions and has a large database
+                of music details. Machine learning helps make accurate recommendations and learns from user 
+                feedback. The goal is to offer a personalized, engaging, and emotionally supportive music experience.
+                </span>
+            </p>
+            <button id="read-more-btn" onclick="toggleReadMore()">Read More</button>
+        </div>
+        <script >
+            function toggleReadMore() {
+        const moreText = document.getElementById("more-text");
+        const btnText = document.getElementById("read-more-btn");
+    
+        if (moreText.style.display === "none") {
+            moreText.style.display = "inline";
+            btnText.innerHTML = "Read Less";
+        } else {
+            moreText.style.display = "none";
+            btnText.innerHTML = "Read More";
+        }
+    }
+    
+        </script>
+      <script>
+        
+    window.setTimeout("document.getElementById('successMessage').style.display='none';", 2000); 
+    </script>
+</body>
+</html>

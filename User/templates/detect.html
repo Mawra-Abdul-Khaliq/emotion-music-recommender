@@ -1,0 +1,45 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Emotion Detection</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='detect.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='webcam.css')}}">
+</head>
+<body class="background">
+    <nav class="navbar">
+        <ul>
+                <h1 style="display: flex; justify-content: center; align-items: center; gap: 5px; margin-left: -32px;">
+                    <img src="{{ url_for('static', filename='Logo.png')}}" height="30px" width="30px ">
+                <a href="{{url_for ('home')}}">Music Recommendation System</a>
+            </h1>
+            <li><a href="{{url_for('logout')}}" onclick="return confirm('Are you sure you want to logout?')">Logout</a></li>
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+        </ul>
+    </nav>
+    <div  id="successMessage" >
+        {% with messages=get_flashed_messages()%}
+        {% if messages %}
+            {% for msg in messages %}
+                <p class="flash">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+     {% endwith %}
+    </div>
+    <div class="detectContainer">
+    <div class="paragraph">
+        <p> To get music recommendations based on your mood, click the <span style="color:rgb(17, 187, 218)">Detect </span> button to open your camera. And allow camera access when asked. The web-app will analyze your facial expressions to understand your mood and suggest songs that match. Don’t worry your camera is only used for detecting emotions, and no images are saved. Enjoy music that fits how you are feeling!</p>
+        <button id="webcam" >Detect</button>
+    </div>
+
+    <div class="item-center">
+        <video id="videoElement" autoplay></video>
+    </div>
+</div>
+    <script src="{{ url_for('static', filename='webcam.js') }}"></script>
+    <script>
+    window.setTimeout("document.getElementById('successMessage').style.display='none';", 2000); 
+    </script>
+</body>
+</html>

@@ -1,0 +1,223 @@
+
+*{
+   margin: 0;
+   padding: 0;
+   box-sizing: border-box;
+}
+
+.Navbar    {
+   background-color:rgb(5, 45, 58);
+   width: 100%;
+   height: 90px;
+}
+.Navbar ul     {
+   margin: 0px;
+   padding-left: 3%;
+}
+.Navbar ul h1  {
+   float: left;
+   color: #fff;
+   text-align: center;
+   padding: 30px 100px 0px 25px;
+   font-style: italic;
+   font-size: 27px;
+   
+  
+}
+.Navbar ul h1 a{
+   color: #fff;
+   text-decoration: none;
+   cursor: pointer;
+}
+
+.Navbar ul li  {
+   float: right;
+   list-style: none;
+   display: inline;
+   text-align: center;
+   
+}
+.Navbar ul li a{
+   display: inline-block;
+   text-decoration: none;
+   line-height: 40px;
+   padding: 25px 100px 0px 25px;
+   color:rgb(244, 237, 237);
+   font-size:x-large;
+   font-style: italic;
+   display: flex;
+   align-items: center;
+   justify-content: center;
+}
+.Navbar ul li a:hover{
+color: rgb(62, 170, 175);
+} 
+
+body{
+  background: linear-gradient(to right , rgb(2, 57, 85), rgb(17, 187, 218));
+  color: #fff;
+  font-family:  Calibri;
+}
+
+.head{
+   margin-left: 72rem ;
+    margin-top: 3rem;
+}
+.head button{
+   padding: 10px;
+   background-color: rgb(5, 45, 58);
+   font-size: x-large;
+   border-radius: 4px;
+   border: none;
+   color: white;
+}
+.head button:hover{
+   background-color: rgb(2, 57, 85);
+}
+.head button:focus{
+   box-shadow: 0 0 0 .25rem rgb(79, 141, 172);
+}
+.addbtn{
+   background-color: rgb(5, 45, 58);
+   color: white;
+   border: none;
+}
+.addbtn:hover{
+   background-color: rgb(2, 57, 85);
+}
+.flash{
+   text-align: center;
+   color: rgb(2, 57, 85);
+   font-size: larger;
+   background-color: #fff;
+   max-width: 30%;
+   border-radius: 6px;
+   padding: 8px;
+   font-weight: 600;
+   margin: 5px auto;
+}
+
+.tab{
+    width: 67rem;
+    background-color: #f9f9f9;
+    color: rgb(41 85 146);
+   max-width: 99%; 
+   margin: 2rem auto;
+   padding: 2px;
+   text-align: center;
+   border: 2px ;
+   border-radius: 4px;   
+}
+.Tbody, td{
+   padding: 5px;
+}
+
+@media only screen and (max-width: 1386px) {
+   .head{
+       margin-left: 68rem;  
+       
+   }
+   
+ }
+ @media only screen and (max-width: 1278px) {
+   .head{
+       margin-left: 64rem;  
+     
+   }
+   
+ }
+ @media only screen and (max-width: 1200px) {
+   .head{
+       margin-left: 59rem;  
+      
+   }
+   
+   
+ }
+ @media only screen and (max-width: 1136px) {
+   .head{
+       margin-left: 54rem;  
+       
+   }
+   
+ }
+ @media only screen and (max-width: 1039px) {
+   .head{
+       margin-left: 50rem;   
+   }
+   
+ }
+ 
+ @media only screen and (max-width: 744px) {
+   
+   .Navbar ul li a{
+       
+      padding: 25px 50px 0px 25px;
+     
+   }
+ }
+ @media only screen and (max-width: 656px) {
+
+   .Navbar ul li a{
+       
+       padding: 23px 20px 0px 25px;
+       font-size: large;
+      
+    }
+    .Navbar ul  h1   {
+       padding: 30px 100px 0px 18px;
+       font-size: larger;
+      
+    }
+}
+@media only screen and (max-width: 508px) {
+
+   .Navbar ul li a{
+       
+       padding: 23px 10px 0px 20px;
+       font-size: large;
+      
+    }
+    .Navbar ul  h1   {
+       padding: 30px 100px 0px 13px;
+       font-size: larger;
+      
+    }
+}
+ @media only screen and (max-width: 458px) {
+   .head button{
+      padding: 10px; 
+      background-color: rgb(6, 47, 69);
+      font-size: large;
+   }
+   .Navbar ul li a{
+       
+      padding: 23px 5px 0px 16px;
+      font-size: medium;
+     
+   }
+   .Navbar ul  h1   {
+      padding: 30px 100px 0px 8px;
+      font-size: large;
+     
+   }
+ }
+@media only screen and (max-width: 418px) {
+   .head button{
+      padding: 7px; 
+      background-color: rgb(6, 47, 69);
+      font-size: medium;
+   }
+   .Navbar ul li a{
+       
+      padding: 22px 5px 0px 10px;
+      font-size: medium;
+     
+   }
+   .Navbar ul  h1   {
+      padding: 30px 20px 0px 8px;
+      font-size: medium;
+     
+   }
+ }
+ 

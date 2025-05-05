@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='home.css')}}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='registration.css')}}">
+</head>
+<body>
+    <nav class="navbar">
+        <ul>
+            <h1 style="display: flex; justify-content: center; align-items: center; gap: 5px; margin-left: -32px;">
+                <img src="{{ url_for('static', filename='Logo.png')}}" height="30px" width="30px ">
+                <a href="{{url_for ('home')}}">Music Recommendation System</a>
+            </h1>
+            <li><a href="{{ url_for('home')}}">Home</a></li>
+        </ul>
+    </nav>
+      <div  id="successMessage" >
+        {% with messages=get_flashed_messages()%}
+        {% if messages %}
+            {% for msg in messages %}
+                <p class="flash">{{msg}}</p>
+            {% endfor %}
+        {% endif %}
+     {% endwith %}
+    </div>
+     <h2>LOGIN</h2> 
+     <div class="register">
+    <form class="register_style" action="{{ url_for('userlogin') }}" method="post">
+    
+    <label for="email">Email</label><br>
+    <input type="email" name="Email" required><br>
+  
+    <label for="password">Password</label><br>
+    <input type="password" name="password" required><br>
+    
+    <button type="submit" >Login</button><br>
+    <br>
+    Don't have an account: <a href="{{ url_for ('registration')}}">Sign up now</a>
+</form>
+</div>
+<script>
+    window.setTimeout("document.getElementById('successMessage').style.display='none';", 2000); 
+</script>
+</body>
+</html>
