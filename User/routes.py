@@ -55,7 +55,7 @@ model = tf.keras.models.load_model(model_path)
 # Define emotion labels
 emotion_labels = ['angry', 'disgust', 'fear', 'happy', 'neutral', 'sad', 'surprised']
 
-youtube_api_keys = ['AIzaSyAmxKjQq5EBs_ZH5Wel9H6xJMvFsPaAqsQ', 'AIzaSyDUx8N05lJLnIpMnPEe2uspxrqON8PM6bw']
+youtube_api_keys = ['YOUTUBE_API_KEY']
 current_key_index = 0
 
 # Initialize YouTube Data API client
